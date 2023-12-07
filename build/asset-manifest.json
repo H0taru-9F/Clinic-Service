@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.32b0f502.css",
+    "main.js": "/static/js/main.a1eb6b14.js",
+    "static/js/787.21693b55.chunk.js": "/static/js/787.21693b55.chunk.js",
+    "static/media/home-third-block.jpg": "/static/media/home-third-block.b394fc4f18cfd4343d60.jpg",
+    "static/media/procedureRooms-title.jpg": "/static/media/procedureRooms-title.9c033d31008f488fc02a.jpg",
+    "static/media/schedule-title.png": "/static/media/schedule-title.95eb09cf99ef30c311e5.png",
+    "static/media/home-contactUs-edit.png": "/static/media/home-contactUs-edit.4ef45b93659cc8bc8478.png",
+    "index.html": "/index.html",
+    "main.32b0f502.css.map": "/static/css/main.32b0f502.css.map",
+    "main.a1eb6b14.js.map": "/static/js/main.a1eb6b14.js.map",
+    "787.21693b55.chunk.js.map": "/static/js/787.21693b55.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.32b0f502.css",
+    "static/js/main.a1eb6b14.js"
+  ]
+}
