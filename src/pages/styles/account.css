@@ -1,0 +1,72 @@
+.Account{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.Account-block{
+    padding: 80px 320px;
+    display: flex;
+    justify-content: center;
+
+}
+.Account-nav{
+    margin-right: 24px;
+    padding: 24px 0px;
+    width: 251px;
+}
+.Account-nav-button{
+    margin-bottom: 15px;
+}
+.Account-nav-button-link{
+    margin-left: 5px;
+
+}
+.Account-inf{
+    border-radius: 20px;
+    width: 525px;
+    padding: 40px 40px 25px 40px
+
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+.Account-inf-pers-first-block{
+    display: flex;
+}
+.Account-inf-pers-first-block-dynamic{
+    width: 210px;
+    margin-right: 35px;
+}
+.Account-inf-pers-second-block-dynamic{
+    border-radius: 10px;
+    width: 210px;
+    height: 52px;
+}
+.Account-inf-pers-second-block-state{
+    margin-left: 35px;
+    width: 200px;
+}
+.Account-inf-pers-second-block-dynamic{
+    padding: 1px 5px;
+}
+.Account-inf-pers-second-block{
+    display: flex;
+    margin-top: 22px;
+}
+.Account-inf-pers-button{
+    margin-top: 22px;
+}
+.Account-inf-offset-first-block{
+    display: flex;
+}
+.Account-inf-offset-first-block-data{
+    width: 150px;
+    margin-right: 95px;
+}
+.Account-inf-data-first-block{
+    display: flex;
+}
+.Account-inf-data-first-block-data{
+    width: 234px;
+    margin-right: 90px;
+}
