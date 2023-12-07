@@ -7,7 +7,6 @@ const Header = () => {
     const [isLoggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
-        // Перевірка, чи є в локальному сховищі інформація про вхід
         const storedLoginStatus = localStorage.getItem(LOCALSTORE_IS_LOGGED_IN);
         if (storedLoginStatus) {
             setLoggedIn(JSON.parse(storedLoginStatus));

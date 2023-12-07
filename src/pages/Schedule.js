@@ -5,29 +5,8 @@ import Footer from "../components/Footer";
 import CustomDropdown from "../components/CustomDropdown";
 import date from '../data/date.json';
 import doctor from '../data/doctors.json';
-import {ButtonV2} from "../components/CustomButtons";
+// import {ButtonV2} from "../components/CustomButtons";
 const Schedule = () => {
-    const postData2 = async () => {
-        try {
-            const response = await fetch('http://localhost:8081/api/v1/auth/signin', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email: 'ivan@example.com',
-                    password: '2222'
-                }),
-                mode: 'щ',
-             });
-
-            const data = await response.json();
-            console.log('Отримані дані з POST-запиту:', data);
-        } catch (error) {
-            console.error('Помилка при виконанні POST-запиту:', error);
-        }
-    };
-
     return(
         <div className='Schedule bg-white'>
             <Header/>
@@ -57,8 +36,6 @@ const Schedule = () => {
                         marginTop: '54px',
                         borderColor: '#23AB7D'
                     }} />
-                    <ButtonV2 title='Testing2' onClick={postData2}/>
-                    {/*<ButtonV2 title='Testing1' onClick={postData1}/>*/}
                 </div>
             </div>
             <Footer/>
