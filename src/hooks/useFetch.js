@@ -21,7 +21,7 @@ const useFetch = (url, email, password) => {
         }).finally(() => {
             setLoading(false)
         })
-    }, [url, email, password]);
+    }, [url]);
     return { data, loading, error }
 }
 export default useFetch;
