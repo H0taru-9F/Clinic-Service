@@ -12,5 +12,6 @@
 
 // export const LOCALSTORE = 'LOCALSTORE';
 
-export const LOCALSTORE_IS_LOGGED_IN = 'LOCALSTORE_IS_LOGGED_IN';
+export const LOCALSTORE_USER = 'LOCALSTORE_USER';
 //ключ для перевірки чи користувач увійшов в систему
+//LOCALSTORE_IS_LOGGED_IN

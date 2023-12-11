@@ -1,32 +1,18 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './styles/logIn.css';
 import { Form} from "react-bootstrap";
 import Input from "../components/Input";
 import { ButtonV2 } from "../components/CustomButtons";
-import {LOCALSTORE_IS_LOGGED_IN} from "../data/constants";
-import useFetch from "../hooks/useFetch";
+import LoginUser from "../utils temporaryName/LoginUser";
+
 const LogIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const { data, loading, error } = useFetch('http://localhost:8081/api/v1/auth/signin', email, password)
-
-    const onClick = () => {
-        localStorage.setItem(LOCALSTORE_IS_LOGGED_IN, true);
-        console.log(`Email: ${email}, Password: ${password}`);
-
-        if (loading) {
-            return alert('Loading...');
-        }
-
-        if (error) {
-            return console.log(' error /testServ ' +error.message);
-        }
-        if (data) {
-            return alert('data '+data);
-        }
-
+    const handleLogin = async () => {
+        await LoginUser(email, password)
     };
+
     const [showPassword, setShowPassword] = useState(false);
     const toggleShowPassword = () => {
         setShowPassword(!showPassword);
@@ -37,10 +23,22 @@ const LogIn = () => {
                 <h3 className='LogIn-card-title tx-green Caption'><b>Увійти</b></h3>
                 <div className='LogIn-input-group'>
                     <div className='LogIn-inp1'>
-                        <Input width={240} type='email' placeholder='Пошта' onChange={(e) => setEmail(e.target.value)}/>
+                        <Input
+                            width={240}
+                            type='email'
+                            placeholder='Пошта'
+                            onChange={e => setEmail(e.target.value)}
+                            value={email}
+                        />
                     </div>
                     <div className='LogIn-inp2'>
-                        <Input width={240} type={showPassword ? 'text' : 'password'} placeholder='Пароль' onChange={(e) => setPassword(e.target.value)}/>
+                        <Input
+                            width={240}
+                            type={showPassword ? 'text' : 'password'}
+                            placeholder='Пароль'
+                            onChange={e => setPassword(e.target.value)}
+                            value={password}
+                        />
                         <Form>
                             <Form.Check className='checkbox' type='checkbox' >
                                 <Form.Check.Input  type='checkbox' isValid onChange={toggleShowPassword}/>
@@ -50,7 +48,7 @@ const LogIn = () => {
                     </div>
                 </div>
                 <div className='LogIn-button-container'>
-                    <ButtonV2 onClick={onClick} title='Продовжити' width={240}/>
+                    <ButtonV2 onClick={handleLogin} title='Продовжити' width={240}/>
                     <a className='link tx-green Button-text-link-2' href='/signUp'>немає акаунту</a>
                 </div>
             </div>

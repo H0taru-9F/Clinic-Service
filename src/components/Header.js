@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import {Container, Navbar, Nav} from "react-bootstrap";
 import './styles/header.css';
 import '../assets/Typography.css';
-import {LOCALSTORE_IS_LOGGED_IN} from "../data/constants";
+import {LOCALSTORE_USER} from "../data/constants";
 const Header = () => {
     const [isLoggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
-        const storedLoginStatus = localStorage.getItem(LOCALSTORE_IS_LOGGED_IN);
+        const storedLoginStatus = window.localStorage.getItem(LOCALSTORE_USER);
         if (storedLoginStatus) {
-            setLoggedIn(JSON.parse(storedLoginStatus));
+            setLoggedIn(true);
         }
     }, []);
 
