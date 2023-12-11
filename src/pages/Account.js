@@ -4,16 +4,30 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { ButtonSmallLink} from "../components/CustomButtons";
 import Dropzone from "../components/CustomDropzone";
+import UnpackingUser from "../utils temporaryName/UnpackingUser";
+import useFetch from "../hooks/useFetch";
+
 
 const Account = () => {
+    const {data, loading, error} = useFetch('/v1/Rocket/account')
+
+    const {stars} = UnpackingUser()
+    console.log('useFetch data', data, loading, error)
+
+    if (loading) {
+    }
     const AccountPers=(
         <div className='Account-inf-pers '>
             <div className='Account-inf-pers-first-block Body2'>
-                <div className='Account-inf-pers-first-block-dynamic'>
-                    <p style={{ marginBottom: '6px' }}>Бандера</p>
-                    <p style={{ marginBottom: '6px' }}>Степан</p>
-                    <p style={{ marginBottom: '6px' }}>Андрійович</p>
-                </div>
+                {loading ?
+                    <p className='Account-inf-pers-first-block-dynamic'>Завантаження...</p>
+                    :
+                    <div className='Account-inf-pers-first-block-dynamic'>
+                        {/*<p style={{ marginBottom: '6px' }}>{data.lastName}</p>*/}
+                        {/*<p style={{ marginBottom: '6px' }}>{data.firstName}</p>*/}
+                        <p style={{ marginBottom: '6px' }}>Андрійович</p>
+                    </div>
+                }
                 <div className='Account-inf-pers-first-block-state tx-green'>
                     <p style={{ marginBottom: '6px' }}>Прізвище</p>
                     <p style={{ marginBottom: '6px' }}>Ім'я</p>
@@ -57,10 +71,15 @@ const Account = () => {
     const AccountData = (
         <div className='Account-inf-data'>
             <div className='Account-inf-data-first-block Body2'>
-                <div className='Account-inf-data-first-block-data tx-black'>
-                    <p>feniak2003@gmail.com</p>
-                    <p>***************</p>
-                </div>
+                { !data ?
+                    <p className='Account-inf-data-first-block-data tx-black'>Завантаження...</p>
+                    :
+                    <div className='Account-inf-data-first-block-data tx-black'>
+                        {/*<p>{data.email}</p>*/}
+                        <p>{stars}</p>
+                    </div>
+                }
+
                 <div className='Account-inf-data-first-block-description tx-green'>
                     <p>Пошта</p>
                     <p>Пароль</p>
@@ -72,7 +91,7 @@ const Account = () => {
                 borderColor: '#23AB7D'
             }} />
             <div className='Account-inf-data-second-block'>
-                <ButtonSmallLink title='Вийти' onClick={() =>{localStorage.clear(); window.location.reload();}}/>
+                <ButtonSmallLink title='Вийти' onClick={() =>{window.localStorage.clear(); window.location.reload();}}/>
             </div>
         </div>
     );

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import axios from "axios";
+import api from "../http";
 
-const useFetch = (url, email, password) => {
+const useFetch = (url) => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -9,15 +9,18 @@ const useFetch = (url, email, password) => {
 
     useEffect(() => {
         setLoading(true);
-        axios
-            .post(url, {
-                email: email,
-                password: password
-            })
+        api
+            .get(url)
             .then((response) => {
                 setData(response.data);
             }).catch((err) => {
-                setError(err)
+                setError({
+                    errorMessage: err.message,
+                    errorStatus: err.response.status
+                })
+            if (err.response.status === 403){
+                window.location.href = '/logIn';
+            }
         }).finally(() => {
             setLoading(false)
         })
