@@ -1,10 +1,10 @@
 import React from "react";
-import './styles/schedule.css';
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import CustomDropdown from "../components/CustomDropdown";
-import date from '../data/date.json';
-import doctor from '../data/doctors.json';
+import './schedule.css';
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import DropdownComponent from "../../components/DropdownComponent";
+import date from '../../data/date.json';
+import doctor from '../../data/doctors.json';
 // import {ButtonV2} from "../components/CustomButtons";
 const Schedule = () => {
     return(
@@ -19,10 +19,10 @@ const Schedule = () => {
                 <div className='Schedule-second-block-bg bg-lightF'>
                     <div className='Schedule-second-block-search'>
                         <div className='Schedule-second-block-search-1'>
-                            <CustomDropdown Toggle='Виберіть дату' Item={date.dates} />
+                            <DropdownComponent Toggle='Виберіть дату' Item={date.dates} />
                         </div>
                         <div className='Schedule-second-block-search-2'>
-                            <CustomDropdown
+                            <DropdownComponent
                                 Toggle='Виберіть лікаря'
                                 Item={doctor.doctors}
                                 onItemSelected={(selectedItem) => {

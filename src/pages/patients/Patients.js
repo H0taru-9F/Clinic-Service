@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import './styles/patients.css';
-import Input from "../components/Input";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import './patients.css';
+import Input from "../../components/Input";
 
 const Patients = () => {
 

@@ -1,4 +1,3 @@
-/*----------------------------Header styles----------------------------*/
 .App-header{
     box-shadow: 0 6px 4px 0 rgba(0,0,0,0.2), 0 4px 10px 0 rgba(0,0,0,0.19);
     height: 80px;
@@ -21,8 +20,6 @@
     flex-shrink: 0;
     color: #212124;
     text-align: center;
-    /* Display 2 */
-
 }
 .button-login{
     margin-left: 20px;
@@ -34,12 +31,10 @@
     gap: 10px;
     border: none;
     border-radius: 50px;
-    /* Button text 1 */
 }
 .button-header{
     color: #212124;
     text-align: center;
-    /* Button text 1 */
 }
 /*.Home-header{*/
 /*    width: 110px;*/

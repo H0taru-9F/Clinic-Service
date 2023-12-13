@@ -1,17 +1,16 @@
 import { Routes ,Route } from 'react-router-dom';
 import React from "react";
-import Home from "./pages/Home";
-import LogIn from "./pages/LogIn";
-import SignUp from "./pages/SignUp";
-import Account from "./pages/Account";
-import Schedule from "./pages/Schedule";
-import ProcedureRooms from "./pages/ProcedureRooms";
-import Patients from "./pages/Patients";
+import Home from "./pages/home/Home";
+import LogIn from "./pages/login/LogIn";
+import SignUp from "./pages/singup/SignUp";
+import Account from "./pages/account/Account";
+import Schedule from "./pages/shedule/Schedule";
+import ProcedureRooms from "./pages/procedurerooms/ProcedureRooms";
+import Patients from "./pages/patients/Patients";
 import TestSendToServer from "./pages/TestSendToServer";
 
 function App() {
   return (
-
     <div className="App" style={{
         minHeight: '100vh',
         display: 'flex',
@@ -20,11 +19,11 @@ function App() {
     }>
         <Routes>
             <Route path='/' element={<Home/>}/>
-            <Route path='/logIn' element={<LogIn/>}/>
-            <Route path='/signUp' element={<SignUp/>}/>
+            <Route path='/login' element={<LogIn/>}/>
+            <Route path='/signup' element={<SignUp/>}/>
             <Route path='/account' element={<Account/>}/>
             <Route path='/schedule' element={<Schedule/>}/>
-            <Route path='/procedureRooms' element={<ProcedureRooms/>}/>
+            <Route path='/procedurerooms' element={<ProcedureRooms/>}/>
             <Route path='/patients' element={<Patients/>}/>
 
             <Route path='/testServ' element={<TestSendToServer/>}/>

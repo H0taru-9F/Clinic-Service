@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import './styles/logIn.css';
+import './logIn.css';
 import { Form} from "react-bootstrap";
-import Input from "../components/Input";
-import { ButtonV2 } from "../components/CustomButtons";
-import LoginUser from "../utils temporaryName/LoginUser";
+import Input from "../../components/Input";
+import { ButtonV2 } from "../../components/ButtonsComponent";
+import LoginUser from "./LoginUser";
 
 const LogIn = () => {
     const [email, setEmail] = useState('');
@@ -49,7 +49,7 @@ const LogIn = () => {
                 </div>
                 <div className='LogIn-button-container'>
                     <ButtonV2 onClick={handleLogin} title='Продовжити' width={240}/>
-                    <a className='link tx-green Button-text-link-2' href='/signUp'>немає акаунту</a>
+                    <a className='link tx-green Button-text-link-2' href='/signup'>немає акаунту</a>
                 </div>
             </div>
         </div>

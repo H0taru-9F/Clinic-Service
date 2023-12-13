@@ -1,6 +1,6 @@
 import React from "react";
 import './styles/footer.css';
-import '../assets/Typography.css';
+import '../assets/typography.css';
 const Footer = () => {
     return(
         <footer className="App-footer bg-darkBlue">
@@ -21,8 +21,8 @@ const Footer = () => {
                 <div className='Links-footer'>
                     <p className='tx-green Body'>Посилання</p>
                     <a className='link-footer-colum tx-light100 Button-text-link-2' href='/'>Головна</a>
-                    <a className='link-footer-colum tx-light100 Button-text-link-2' href='/schedule'>Розклад</a>
-                    <a className='link-footer-colum tx-light100 Button-text-link-2' href='/procedureRooms'>Процедурні кабінети</a>
+                    <a className='link-footer-colum tx-light100 Button-text-link-2' href='/shedule'>Розклад</a>
+                    <a className='link-footer-colum tx-light100 Button-text-link-2' href='/procedurerooms'>Процедурні кабінети</a>
                     <a className='link-footer-colum tx-light100 Button-text-link-2' href='/account'>Особистий кабінет</a>
                 </div>
                 <div className='Contact-footer tx-white'>

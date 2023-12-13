@@ -1,6 +1,6 @@
 import React from "react";
 import './styles/button.css';
-import '.././assets/Typography.css';
+import '../assets/typography.css';
 const ButtonV1 = ({onClick,title,width}) => {
     const buttonStyles  = {
         width: width || 'auto',

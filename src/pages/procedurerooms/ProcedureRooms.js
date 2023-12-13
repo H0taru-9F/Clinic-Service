@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import './styles/procedureRooms.css';
-import doctor from '../data/doctors.json';
-import procedure from '../data/procedure.json';
-import CustomDropdown from "../components/CustomDropdown";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import './procedureRooms.css';
+import doctor from '../../data/doctors.json';
+import procedure from '../../data/procedure.json';
+import DropdownComponent from "../../components/DropdownComponent";
 
 const ProcedureRooms = () => {
     return(
@@ -19,10 +19,10 @@ const ProcedureRooms = () => {
                 <div className='ProcedureRooms-second-block-bg bg-lightF'>
                     <div className='ProcedureRooms-second-block-search'>
                         <div className='ProcedureRooms-second-block-search-1'>
-                            <CustomDropdown Toggle='Виберіть процедуру' Item={procedure.procedure}/>
+                            <DropdownComponent Toggle='Виберіть процедуру' Item={procedure.procedure}/>
                         </div>
                         <div className='ProcedureRooms-second-block-search-2'>
-                            <CustomDropdown Toggle='Виберіть лікаря' Item={doctor.doctors}/>
+                            <DropdownComponent Toggle='Виберіть лікаря' Item={doctor.doctors}/>
                         </div>
                     </div>
                 </div>

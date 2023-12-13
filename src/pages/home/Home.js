@@ -1,12 +1,10 @@
 import React from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import ContactUs from "../components/ContauctUs";
-import './styles/home.css';
-import '../assets/Colors.css';
-import information from '../data/contauctUs.json';
-// import {ButtonV1} from "../components/CustomButtons";
-// import {information} from '../data/constants';
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import ContactUs from "../../components/ContauctUs";
+import './home.css';
+import '../../assets/colors.css';
+import information from '../../data/contauctUs.json';
 //якщо перенести зображення в public ьо зображення передаються в усіх інших випадках вони не відображаються
 function Home() {
     return (

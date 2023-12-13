@@ -1,11 +1,11 @@
 import React, {useState} from "react";
-import './styles/account.css';
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import { ButtonSmallLink} from "../components/CustomButtons";
-import Dropzone from "../components/CustomDropzone";
-import UnpackingUser from "../utils temporaryName/UnpackingUser";
-import useFetch from "../hooks/useFetch";
+import './account.css';
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import { ButtonSmallLink} from "../../components/ButtonsComponent";
+import Dropzone from "../../components/DropzoneComponent";
+import UnpackingUser from "../../utils/UnpackingUser";
+import useFetch from "../../hooks/useFetch";
 
 
 const Account = () => {
@@ -16,6 +16,7 @@ const Account = () => {
 
     if (loading) {
     }
+
     const AccountPers=(
         <div className='Account-inf-pers '>
             <div className='Account-inf-pers-first-block Body2'>
@@ -105,7 +106,7 @@ const Account = () => {
                     <button className='Account-nav-button Button-text-link-1' onClick={() => setAccountPage(AccountPers)}>Особистий кабінет</button>
                     <button className='Account-nav-button Button-text-link-1' onClick={() => setAccountPage(AccountOffset)}>Страховка</button>
                     <button className='Account-nav-button Button-text-link-1' onClick={() => setAccountPage(AccountData)}>Дані аккаунту</button>
-                    <a className='Account-nav-button-link Button-text-link-1' href='/patients' >Пацієнти</a>
+                    <a className='Account-nav-button-link Button-text-link-1' href='/src/pages/patients/Patients' >Пацієнти</a>
                 </div>
                 <div className='Account-inf bg-lightF'>
                     {AccountPage}

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './styles/signUp.css';
+import './signUp.css';
 import { Form } from "react-bootstrap";
-import Input from "../components/Input";
-import { ButtonV2 } from "../components/CustomButtons";
-import SingupUser from "../utils temporaryName/SingupUser";
+import Input from "../../components/Input";
+import { ButtonV2 } from "../../components/ButtonsComponent";
+import SingUpUser from "./SingUpUser";
 
 const SignUp =() => {
     const [name, setName] = useState('');
@@ -13,14 +13,18 @@ const SignUp =() => {
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
 
-    const handleSingup = async () => {
-        await SingupUser(
+    const handleSingUp = async () => {
+        console.log('Password:', password);
+        console.log('Confirm Password:', confirmPass);
+
+        await SingUpUser(
             name,
             surname,
-            // patronymic,
+            patronymic,
             email,
             password,
-            confirmPass)
+            confirmPass
+        )
     }
 
     const [showPassword, setShowPassword] = useState(false);
@@ -87,8 +91,8 @@ const SignUp =() => {
                     </div>
                 </div>
                 <div className='SignUp-button-container'>
-                    <ButtonV2 onClick={handleSingup} title='Продовжити' width={320}/>
-                    <a className='link tx-green Button-text-link-2' href='/logIn'>є акаунту</a>
+                    <ButtonV2 onClick={handleSingUp} title='Продовжити' width={320}/>
+                    <a className='link tx-green Button-text-link-2' href='/login'>є акаунту</a>
                 </div>
             </div>
         </div>

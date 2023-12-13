@@ -1,8 +1,7 @@
 import axios from 'axios';
-import {LOCALSTORE_USER} from "../data/constants";
-// import {LOCALSTORE_USER} from "../data/constants";
+import {LOCALSTORE_USER} from "../../data/constants";
 
-const SingupUser = async (
+const SingUpUser = async (
     name,
     surname,
     patronymic,
@@ -10,12 +9,15 @@ const SingupUser = async (
     password,
     confirmPass
 ) => {
+    console.log('Password:', password);
+    console.log('Confirm Password:', confirmPass);
+
     if (password === confirmPass){
         try {
             const resp = await axios.post('http://localhost:8081/api/v1/auth/signup',{
                 name: name,
                 surname: surname,
-                // patronymic: patronymic,
+                patronymic: patronymic,
                 email: email,
                 password: password
             })
@@ -35,4 +37,4 @@ const SingupUser = async (
     }
 
 }
-export default SingupUser;
+export default SingUpUser;

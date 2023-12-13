@@ -15,7 +15,7 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
         &#x25bc;
     </a>
 ));
-const CustomDropdown = ({Toggle,Item,onItemSelected }) => {
+const DropdownComponent = ({Toggle,Item,onItemSelected }) => {
     const [selectedItem, setSelectedItem] = useState(null);
 
     const handleItemClick = (selectedItem) => {
@@ -46,4 +46,4 @@ const CustomDropdown = ({Toggle,Item,onItemSelected }) => {
 
     );
 };
-export default CustomDropdown;
+export default DropdownComponent;

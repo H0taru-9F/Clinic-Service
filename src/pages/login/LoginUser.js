@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {LOCALSTORE_USER} from "../data/constants";
+import {LOCALSTORE_USER} from "../../data/constants";
 const LoginUser = async (email, password) => {
     window.localStorage.clear()
     try {
