@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import './account.css';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -11,11 +11,15 @@ import useFetch from "../../hooks/useFetch";
 const Account = () => {
     const {data, loading, error} = useFetch('/v1/Rocket/account')
 
-    const {stars} = UnpackingUser()
+    useEffect(() => {
+        if (data) {
+            setAccountPage(AccountPers)
+        }
+    }, [data]);
+
+    const {email, password} = UnpackingUser()
     console.log('useFetch data', data, loading, error)
 
-    if (loading) {
-    }
 
     const AccountPers=(
         <div className='Account-inf-pers '>
@@ -24,9 +28,9 @@ const Account = () => {
                     <p className='Account-inf-pers-first-block-dynamic'>Завантаження...</p>
                     :
                     <div className='Account-inf-pers-first-block-dynamic'>
-                        {/*<p style={{ marginBottom: '6px' }}>{data.lastName}</p>*/}
-                        {/*<p style={{ marginBottom: '6px' }}>{data.firstName}</p>*/}
-                        <p style={{ marginBottom: '6px' }}>Андрійович</p>
+                        <p style={{ marginBottom: '6px' }}>{data?.lastName}</p>
+                        <p style={{ marginBottom: '6px' }}>{data?.firstName}</p>
+                        {/*<p style={{ marginBottom: '6px' }}>{data?}</p>*/}
                     </div>
                 }
                 <div className='Account-inf-pers-first-block-state tx-green'>
@@ -72,12 +76,12 @@ const Account = () => {
     const AccountData = (
         <div className='Account-inf-data'>
             <div className='Account-inf-data-first-block Body2'>
-                { !data ?
+                {loading ?
                     <p className='Account-inf-data-first-block-data tx-black'>Завантаження...</p>
                     :
                     <div className='Account-inf-data-first-block-data tx-black'>
-                        {/*<p>{data.email}</p>*/}
-                        <p>{stars}</p>
+                        <p>{email}</p>
+                        <p>{password}</p>
                     </div>
                 }
 
