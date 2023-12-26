@@ -1,12 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import './procedureRooms.css';
-import doctor from '../../data/doctors.json';
-import procedure from '../../data/procedure.json';
+// import doctor from '../../data/doctors.json';
+// import procedure from '../../data/procedure.json';
 import DropdownComponent from "../../components/DropdownComponent";
+import useFetch from "../../hooks/useFetch";
+import {ButtonBigLink} from "../../components/ButtonsComponent";
 
 const ProcedureRooms = () => {
+    const {data, loading, error} = useFetch('/')
+
+    useEffect(() => {
+        if (loading){
+
+        }
+    }, [loading]);
+
     return(
         <div className='ProcedureRooms bg-white'>
             <Header/>
@@ -19,10 +29,11 @@ const ProcedureRooms = () => {
                 <div className='ProcedureRooms-second-block-bg bg-lightF'>
                     <div className='ProcedureRooms-second-block-search'>
                         <div className='ProcedureRooms-second-block-search-1'>
-                            <DropdownComponent Toggle='Виберіть процедуру' Item={procedure.procedure}/>
+                            <DropdownComponent Toggle='Виберіть процедуру' Item={data?.procedure}/>
                         </div>
                         <div className='ProcedureRooms-second-block-search-2'>
-                            <DropdownComponent Toggle='Виберіть лікаря' Item={doctor.doctors}/>
+                            <ButtonBigLink title='Шукати'/>
+                            {/*<DropdownComponent Toggle='Виберіть лікаря' Item={doctor.doctors}/>*/}
                         </div>
                     </div>
                 </div>

@@ -28,9 +28,9 @@ const Account = () => {
                     <p className='Account-inf-pers-first-block-dynamic'>Завантаження...</p>
                     :
                     <div className='Account-inf-pers-first-block-dynamic'>
-                        <p style={{ marginBottom: '6px' }}>{data?.lastName}</p>
-                        <p style={{ marginBottom: '6px' }}>{data?.firstName}</p>
-                        {/*<p style={{ marginBottom: '6px' }}>{data?}</p>*/}
+                        <p style={{ marginBottom: '6px' }}>{data?.surname}</p>
+                        <p style={{ marginBottom: '6px' }}>{data?.name}</p>
+                        <p style={{ marginBottom: '6px' }}>{data?.fatherName}</p>
                     </div>
                 }
                 <div className='Account-inf-pers-first-block-state tx-green'>
@@ -45,15 +45,24 @@ const Account = () => {
                 borderColor: '#23AB7D',
                 width: '445px'
             }}/>
-            <div className='Account-inf-pers-second-block'>
-                <div className='Account-inf-pers-second-block-dynamic bg-white Body'>
-                    <p>заміна хребта,9:20,І.П. Прізвище,078 </p>
-                </div>
-                <div className='Account-inf-pers-second-block-state tx-green Body2'>
-                    <h>Направлення в кабінет</h>
+            <div className='Account-inf-data-first-block Body2'>
+                {loading ?
+                    <p className='Account-inf-data-first-block-data tx-black'>Завантаження...</p>
+                    :
+                    <div className='Account-inf-data-first-block-data tx-black'>
+                        <p>{email}</p>
+                        <p>{password}</p>
+                    </div>
+                }
+                <div className='Account-inf-data-first-block-description tx-green'>
+                    <p>Пошта</p>
+                    <p>Пароль</p>
                 </div>
             </div>
-            <button className='Account-inf-pers-button Button-text-link-2'>Зберегти</button>
+            <div className='Account-inf-data-second-block'>
+                <ButtonSmallLink title='Вийти' onClick={() =>{window.localStorage.clear(); window.location.reload();}}/>
+            </div>
+
         </div>
     );
     const AccountOffset = (
@@ -76,19 +85,7 @@ const Account = () => {
     const AccountData = (
         <div className='Account-inf-data'>
             <div className='Account-inf-data-first-block Body2'>
-                {loading ?
-                    <p className='Account-inf-data-first-block-data tx-black'>Завантаження...</p>
-                    :
-                    <div className='Account-inf-data-first-block-data tx-black'>
-                        <p>{email}</p>
-                        <p>{password}</p>
-                    </div>
-                }
 
-                <div className='Account-inf-data-first-block-description tx-green'>
-                    <p>Пошта</p>
-                    <p>Пароль</p>
-                </div>
             </div>
             <div style={{
                 borderTop: '1.5px solid black',

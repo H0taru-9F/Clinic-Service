@@ -35,7 +35,7 @@
 }
 .Account-inf-pers-first-block-dynamic{
     width: 210px;
-    margin-right: 35px;
+    margin-right: 90px;
 }
 .Account-inf-pers-second-block-dynamic{
     border-radius: 10px;
@@ -64,9 +64,10 @@
     margin-right: 95px;
 }
 .Account-inf-data-first-block{
+    margin-top: 15px;
     display: flex;
 }
 .Account-inf-data-first-block-data{
-    width: 234px;
-    margin-right: 90px;
+    width: 240px;
+    margin-right: 60px;
 }
