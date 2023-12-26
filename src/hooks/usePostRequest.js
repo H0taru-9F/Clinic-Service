@@ -1,5 +1,6 @@
 import { useState} from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+import api from "../lib/http";
 
 const usePostRequest = (url) => {
     const [data, setData] = useState(null);
@@ -11,7 +12,8 @@ const usePostRequest = (url) => {
             setData(null);
             setError(null);
             setLoading(true);
-            const response = await axios.post(url, body);
+            const response = await api
+                .post(url, body);
             setData(response.data);
         } catch (err) {
             setError(err);
