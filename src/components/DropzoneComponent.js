@@ -12,7 +12,7 @@ const Dropzone = () => {
         setSelectedPhoto(photo);
 
         try {
-            await postData({ photo }); // Якщо на сервері очікується об'єкт з властивістю photo
+            await postData({ photo });
             console.log('Фото успішно відправлено на сервер');
         } catch (error) {
             console.error('Помилка відправлення фото на сервер', error);
