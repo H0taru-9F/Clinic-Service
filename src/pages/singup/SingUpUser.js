@@ -22,9 +22,15 @@ const SingUpUser = async (
                 password: password
             })
             const token = resp.data.accessToken
+
+            const codedPass = (password) => {
+                const length = password.length;
+                return '*'.repeat(length);
+            };
+            const stars = codedPass(password)
             const user = {
                 email: email,
-                password: password,
+                password: stars,
                 token: token
             }
             window.localStorage.setItem(LOCALSTORE_USER, JSON.stringify(user))
