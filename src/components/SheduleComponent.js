@@ -15,7 +15,11 @@ const ScheduleComponent = (props) => {
             <div className='schedule-subcomponent'>
                 {
                     props.data.map(item => {
-                        return(<div/>)
+                        return(
+                            <div>
+                                {}
+                            </div>
+                        )
                     })
                 }
             </div>

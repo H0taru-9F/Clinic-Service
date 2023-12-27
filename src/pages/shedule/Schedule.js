@@ -6,11 +6,10 @@ import DropdownComponent from "../../components/DropdownComponent";
 import date from '../../data/date.json';
 import useFetch from "../../hooks/useFetch";
 import usePostRequest from "../../hooks/usePostRequest";
-// import ContactUs from "../../components/ContauctUs";
+import tested from '../../data/tested.json';
 // import {ButtonV2} from "../components/CustomButtons";
 const Schedule = () => {
     const [selectDate, setSelectDate] = useState('')
-    // const [selectDoctor, setSelectDoctor] = useState('')
     const {data, loading, error} = useFetch('/api/v1/Clinic-name/schedule/byDay')
 
     useEffect(() => {
@@ -26,13 +25,6 @@ const Schedule = () => {
         await postData({
             date: selectDate
         })
-        // if (selectDate && selectDoctor) {
-        //     await postData({ date: selectDate, doctor: selectDoctor });
-        // } else if (selectDate) {
-        //     await postData({ date: selectDate });
-        // } else if (selectDoctor) {
-        //     await postData({ doctor: selectDoctor });
-        // }
     }
 
     useEffect(() => {
@@ -40,6 +32,28 @@ const Schedule = () => {
     }, [selectDate]);
 
     console.log('Request data', reqData, reqLoading, reqError)
+
+    // const GroupedSchedule = () => {
+    //     const groupedData = data.reduce((acc, item) => {
+    //         const dayOfWeek = item.dayOfWeek;
+    //
+    //         if (!acc[dayOfWeek]) {
+    //             acc[dayOfWeek] = [];
+    //         }
+    //
+    //         acc[dayOfWeek].push(item);
+    //
+    //         return acc;
+    //     }, {});
+
+    const groupedData = tested.reduce((acc, item) => {
+        const dayOfWeek = item.dayOfWeek;
+        acc[dayOfWeek] = acc[dayOfWeek] || { appointments: [], offices: new Set() };
+        acc[dayOfWeek].appointments.push(item);
+        acc[dayOfWeek].offices.add(item.office);
+        return acc;
+    }, {});
+
     return(
         <div className='Schedule bg-white'>
             <Header/>
@@ -60,27 +74,56 @@ const Schedule = () => {
                                 }}
                             />
                         </div>
-                        {/*<div className='Schedule-second-block-search-2'>*/}
-                        {/*    <DropdownComponent*/}
-                        {/*        Toggle='Виберіть лікаря'*/}
-                        {/*        Item={doctor.doctors}*/}
-                        {/*        onItemSelected={(selectedItemDoctor) => {*/}
-                        {/*            alert('You are select ' + setSelectDoctor(selectedItemDoctor));*/}
-                        {/*        }}*/}
-                        {/*    />*/}
-                        {/*</div>*/}
                     </div>
                     <div style={{
                         borderTop: '1.5px solid black',
                         marginTop: '54px',
                         borderColor: '#23AB7D'
                     }} />
+                    <div className='Schedule-container'>
+                        {Object.entries(groupedData).map(([dayOfWeek, { appointments, offices }]) => (
+                            <div key={dayOfWeek}>
+                                <div className='Schedule-container-title tx-black '>
+                                    <p className='Caption'>{dayOfWeek}</p>
+                                    <p className='offices Body'>Кабінет {[...offices].join(', ')}</p>
+                                </div>
+                                <ul>
+                                    {appointments.map((appointment) => (
+                                        <div className='container-inf Body2'>
+                                            <p className='time tx-green'>Години прийому</p>
+                                            <p>{appointment.appointmentTime}</p>
+                                            <p className='doctor tx-green'>Лікар</p>
+                                            <p>{appointment.doctor.doctorName}</p>
+                                        </div>
+                                    ))}
+                                </ul>
+                                <div style={{
+                                    borderTop: '1.5px solid black',
+                                    marginTop: '54px',
+                                    borderColor: '#23AB7D'
+                                }} />
+                            </div>
+                        ))}
+                    </div>
+
 
                     {/*<div className='Schedule-container'>*/}
-                    {/*    {reqData?.map(item => {*/}
+                    {/*    {tested.map(item => {*/}
                     {/*        return(*/}
-                    {/*            <ContactUs key={item.id} card={item}/>*/}
-                    {/*        );*/}
+                    {/*            <div>*/}
+                    {/*                <div className='tx-black Caption'>*/}
+                    {/*                    <p>*/}
+                    {/*                        {item.dayOfWeek}*/}
+                    {/*                    </p>*/}
+                    {/*                </div>*/}
+                    {/*                <div>*/}
+
+                    {/*                </div>*/}
+                    {/*                <div>*/}
+
+                    {/*                </div>*/}
+                    {/*            </div>*/}
+                    {/*        )*/}
                     {/*    })}*/}
                     {/*</div>*/}
 

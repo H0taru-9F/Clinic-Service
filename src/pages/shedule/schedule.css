@@ -44,3 +44,21 @@
     text-align: left;
     margin-left: auto;
 }
+
+.Schedule-container-title{
+    display: flex;
+}
+.offices{
+    margin-left: 600px;
+}
+.container-inf{
+    display: flex;
+    margin: 12px;
+}
+.time{
+    margin-right: 84px;
+}
+.doctor{
+    margin-right: 84px;
+    margin-left: 114px;
+}

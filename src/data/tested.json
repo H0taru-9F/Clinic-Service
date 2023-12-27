@@ -1,0 +1,117 @@
+[
+  {
+    "id": 1,
+    "doctor": {
+      "id": 1,
+      "doctorName": "Dr. John ",
+      "surname": "Smith",
+      "fathersName": "Smith",
+      "age": 17,
+      "specialization": "Cardiologist",
+      "account": {
+        "password": "$2a$10$CJgEoobU2gm0euD4ygru4ukBf9g8fYnPrMvYk.q0GMfOcIDtUhEwC",
+        "enabled": true,
+        "authorities": null,
+        "username": "doctor_john@example.com",
+        "accountNonExpired": true,
+        "credentialsNonExpired": true,
+        "accountNonLocked": true
+      }
+    },
+    "dayOfWeek": "Monday",
+    "appointmentTime": "08:00:00",
+    "office": 1
+  },
+  {
+    "id": 2,
+    "doctor": {
+      "id": 1,
+      "doctorName": "Dr. John ",
+      "surname": "Smith",
+      "fathersName": "Smith",
+      "age": 17,
+      "specialization": "Cardiologist",
+      "account": {
+        "password": "$2a$10$CJgEoobU2gm0euD4ygru4ukBf9g8fYnPrMvYk.q0GMfOcIDtUhEwC",
+        "enabled": true,
+        "authorities": null,
+        "username": "doctor_john@example.com",
+        "accountNonExpired": true,
+        "credentialsNonExpired": true,
+        "accountNonLocked": true
+      }
+    },
+    "dayOfWeek": "Tuesday",
+    "appointmentTime": "08:00:00",
+    "office": 2
+  },
+  {
+    "id": 3,
+    "doctor": {
+      "id": 1,
+      "doctorName": "Dr. John ",
+      "surname": "Smith",
+      "fathersName": "Smith",
+      "age": 17,
+      "specialization": "Cardiologist",
+      "account": {
+        "password": "$2a$10$CJgEoobU2gm0euD4ygru4ukBf9g8fYnPrMvYk.q0GMfOcIDtUhEwC",
+        "enabled": true,
+        "authorities": null,
+        "username": "doctor_john@example.com",
+        "accountNonExpired": true,
+        "credentialsNonExpired": true,
+        "accountNonLocked": true
+      }
+    },
+    "dayOfWeek": "Monday",
+    "appointmentTime": "09:00:00",
+    "office": 1
+  },
+  {
+    "id": 4,
+    "doctor": {
+      "id": 1,
+      "doctorName": "Dr. John ",
+      "surname": "Smith",
+      "fathersName": "Smith",
+      "age": 17,
+      "specialization": "Cardiologist",
+      "account": {
+        "password": "$2a$10$CJgEoobU2gm0euD4ygru4ukBf9g8fYnPrMvYk.q0GMfOcIDtUhEwC",
+        "enabled": true,
+        "authorities": null,
+        "username": "doctor_john@example.com",
+        "accountNonExpired": true,
+        "credentialsNonExpired": true,
+        "accountNonLocked": true
+      }
+    },
+    "dayOfWeek": "Monday",
+    "appointmentTime": "10:30:00",
+    "office": 1
+  },
+  {
+    "id": 5,
+    "doctor": {
+      "id": 1,
+      "doctorName": "Dr. John ",
+      "surname": "Smith",
+      "fathersName": "Smith",
+      "age": 17,
+      "specialization": "Cardiologist",
+      "account": {
+        "password": "$2a$10$CJgEoobU2gm0euD4ygru4ukBf9g8fYnPrMvYk.q0GMfOcIDtUhEwC",
+        "enabled": true,
+        "authorities": null,
+        "username": "doctor_john@example.com",
+        "accountNonExpired": true,
+        "credentialsNonExpired": true,
+        "accountNonLocked": true
+      }
+    },
+    "dayOfWeek": "Tuesday",
+    "appointmentTime": "14:00:00",
+    "office": 2
+  }
+]
