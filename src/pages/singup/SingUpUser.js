@@ -4,7 +4,7 @@ import {LOCALSTORE_USER} from "../../data/constants";
 const SingUpUser = async (
     name,
     surname,
-    patronymic,
+    fathersName,
     email,
     password,
     confirmPass
@@ -17,7 +17,7 @@ const SingUpUser = async (
             const resp = await axios.post('http://localhost:8081/api/v1/auth/signup',{
                 name: name,
                 surname: surname,
-                patronymic: patronymic,
+                fathersName: fathersName,
                 email: email,
                 password: password
             })

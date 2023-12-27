@@ -1,4 +1,3 @@
-import react from "react";
 import React from "react";
 
 const ScheduleComponent = (props) => {
@@ -7,12 +6,19 @@ const ScheduleComponent = (props) => {
         <div className=''>
 
             <div className='schedule-day'>
-
+                <p>{props?.dayOfWeek}</p>
             </div>
             <div className='schedule-room'>
-
+                <p>Кабінет {props?.office}</p>
             </div>
 
+            <div className='schedule-subcomponent'>
+                {
+                    props.data.map(item => {
+                        return(<div/>)
+                    })
+                }
+            </div>
             <div style={{
                 borderTop: '1.5px solid black',
                 marginTop: '54px',
