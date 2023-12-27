@@ -10,7 +10,7 @@ import usePostRequest from "../../hooks/usePostRequest";
 // import {ButtonV2} from "../components/CustomButtons";
 const Schedule = () => {
     const [selectDate, setSelectDate] = useState('')
-    const [selectDoctor, setSelectDoctor] = useState('')
+    // const [selectDoctor, setSelectDoctor] = useState('')
     const {data, loading, error} = useFetch('/api/v1/Clinic-name/schedule/byDay')
 
     useEffect(() => {
@@ -22,22 +22,22 @@ const Schedule = () => {
     const {data:reqData, loading:reqLoading, error:reqError, postData} = usePostRequest('/')
 
     const handlePostData = async () => {
+        console.log(selectDate)
         await postData({
-            date
+            date: selectDate
         })
-        if (selectDate && selectDoctor) {
-            await postData({ date: selectDate, doctor: selectDoctor });
-        } else if (selectDate) {
-            await postData({ date: selectDate });
-        } else if (selectDoctor) {
-            await postData({ doctor: selectDoctor });
-        }
-
+        // if (selectDate && selectDoctor) {
+        //     await postData({ date: selectDate, doctor: selectDoctor });
+        // } else if (selectDate) {
+        //     await postData({ date: selectDate });
+        // } else if (selectDoctor) {
+        //     await postData({ doctor: selectDoctor });
+        // }
     }
 
     useEffect(() => {
         handlePostData();
-    }, [selectDate,selectDoctor]);
+    }, [selectDate]);
 
     console.log('Request data', reqData, reqLoading, reqError)
     return(

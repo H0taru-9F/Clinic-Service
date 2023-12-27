@@ -7,7 +7,7 @@ const LoginUser = async (email, password) => {
             email: email,
             password: password
         })
-        const token = resp.data.accessToken
+        const token = resp.data.token
         const position = resp.data.position
         console.log(position)
         const codedPass = (password) => {
