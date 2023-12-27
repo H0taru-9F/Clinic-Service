@@ -46,7 +46,7 @@ const Schedule = () => {
     //         return acc;
     //     }, {});
 
-    const groupedData = tested.reduce((acc, item) => {
+    const groupedData = data?.reduce((acc, item) => {
         const dayOfWeek = item.dayOfWeek;
         acc[dayOfWeek] = acc[dayOfWeek] || { appointments: [], offices: new Set() };
         acc[dayOfWeek].appointments.push(item);
