@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import './styles/dropzone.css';
+import usePostRequest from "../hooks/usePostRequest";
 
 const Dropzone = () => {
     const [selectedPhoto, setSelectedPhoto] = useState(null);
+    const { postData } = usePostRequest('/');
 
-    const onDrop = (acceptedFiles) => {
-        // Вибір першого прийнятого файлу та збереження його в стані компонента
+    const onDrop = async (acceptedFiles) => {
         const photo = acceptedFiles[0];
         setSelectedPhoto(photo);
 
-        // Якщо ви хочете зберегти файл в локальному сховищі, використовуйте localStorage або sessionStorage
-        // localStorage.setItem('photo', photo);
-        // sessionStorage.setItem('photo', photo);
+        try {
+            await postData({ photo }); // Якщо на сервері очікується об'єкт з властивістю photo
+            console.log('Фото успішно відправлено на сервер');
+        } catch (error) {
+            console.error('Помилка відправлення фото на сервер', error);
+        }
     };
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
         onDrop,
-        accept: 'image/*', // Дозволяє приймати тільки файли з розширенням .png, .jpg та ін.
+        accept: 'image/*'
     });
     return (
         <div>
@@ -33,6 +37,4 @@ const Dropzone = () => {
         </div>
     );
 };
-
-
 export default Dropzone;
