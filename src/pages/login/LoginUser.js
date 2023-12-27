@@ -8,7 +8,8 @@ const LoginUser = async (email, password) => {
             password: password
         })
         const token = resp.data.accessToken
-        // console.log(token)
+        const position = resp.data.position
+        console.log(position)
         const codedPass = (password) => {
             const length = password.length;
             return '*'.repeat(length);
@@ -22,7 +23,7 @@ const LoginUser = async (email, password) => {
 
         console.log(user)
         window.localStorage.setItem(LOCALSTORE_USER, JSON.stringify(user))
-        window.location.href = '/account';
+        // window.location.href = '/account';
     } catch (err) {
         console.error(err.message);
     }

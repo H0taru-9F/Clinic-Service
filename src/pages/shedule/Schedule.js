@@ -4,16 +4,14 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import DropdownComponent from "../../components/DropdownComponent";
 import date from '../../data/date.json';
-import doctor from '../../data/doctors.json';
 import useFetch from "../../hooks/useFetch";
 import usePostRequest from "../../hooks/usePostRequest";
-import information from "../../data/contauctUs.json";
-import ContactUs from "../../components/ContauctUs";
+// import ContactUs from "../../components/ContauctUs";
 // import {ButtonV2} from "../components/CustomButtons";
 const Schedule = () => {
     const [selectDate, setSelectDate] = useState('')
     const [selectDoctor, setSelectDoctor] = useState('')
-    const {data, loading, error} = useFetch('/')
+    const {data, loading, error} = useFetch('/api/v1/Clinic-name/schedule/byDay')
 
     useEffect(() => {
         if (loading){
@@ -24,6 +22,9 @@ const Schedule = () => {
     const {data:reqData, loading:reqLoading, error:reqError, postData} = usePostRequest('/')
 
     const handlePostData = async () => {
+        await postData({
+            date
+        })
         if (selectDate && selectDoctor) {
             await postData({ date: selectDate, doctor: selectDoctor });
         } else if (selectDate) {
@@ -55,19 +56,19 @@ const Schedule = () => {
                                 Toggle='Виберіть дату'
                                 Item={date.dates}
                                 onItemSelected={(selectedItemDate) => {
-                                    alert('You are select ' + setSelectDate(selectedItemDate));
+                                    console.log('You are select ' + setSelectDate(selectedItemDate));
                                 }}
                             />
                         </div>
-                        <div className='Schedule-second-block-search-2'>
-                            <DropdownComponent
-                                Toggle='Виберіть лікаря'
-                                Item={doctor.doctors}
-                                onItemSelected={(selectedItemDoctor) => {
-                                    alert('You are select ' + setSelectDoctor(selectedItemDoctor));
-                                }}
-                            />
-                        </div>
+                        {/*<div className='Schedule-second-block-search-2'>*/}
+                        {/*    <DropdownComponent*/}
+                        {/*        Toggle='Виберіть лікаря'*/}
+                        {/*        Item={doctor.doctors}*/}
+                        {/*        onItemSelected={(selectedItemDoctor) => {*/}
+                        {/*            alert('You are select ' + setSelectDoctor(selectedItemDoctor));*/}
+                        {/*        }}*/}
+                        {/*    />*/}
+                        {/*</div>*/}
                     </div>
                     <div style={{
                         borderTop: '1.5px solid black',
@@ -75,13 +76,14 @@ const Schedule = () => {
                         borderColor: '#23AB7D'
                     }} />
 
-                    <div className='Schedule-container'>
-                        {reqData?.map(item => {
-                            return(
-                                <ContactUs key={item.id} card={item}/>
-                            );
-                        })}
-                    </div>
+                    {/*<div className='Schedule-container'>*/}
+                    {/*    {reqData?.map(item => {*/}
+                    {/*        return(*/}
+                    {/*            <ContactUs key={item.id} card={item}/>*/}
+                    {/*        );*/}
+                    {/*    })}*/}
+                    {/*</div>*/}
+
                 </div>
             </div>
             <Footer/>

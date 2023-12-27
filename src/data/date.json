@@ -1,7 +1,11 @@
 {
   "dates": [
-    "1 Грудня 2023",
-    "2 Грудня 2023",
-    "3 Грудня 2023"
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
   ]
 }
