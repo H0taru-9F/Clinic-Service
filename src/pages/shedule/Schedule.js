@@ -57,6 +57,7 @@ const Schedule = () => {
         return acc;
     }, {});
 
+    console.log()
     return(
         <div className='Schedule bg-white'>
             <Header/>

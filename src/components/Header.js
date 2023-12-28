@@ -3,7 +3,9 @@ import {Container, Navbar, Nav} from "react-bootstrap";
 import './styles/header.css';
 import '../assets/typography.css';
 import {LOCALSTORE_USER} from "../data/constants";
+import unpackingUser from "../utils/UnpackingUser";
 const Header = () => {
+    const [accesDoctor, setAccesDoctor] = useState('')
     const [isLoggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
@@ -12,6 +14,17 @@ const Header = () => {
             setLoggedIn(true);
         }
     }, []);
+
+    const {position} = unpackingUser
+    const schedule = (
+        <Nav.Link className='Shedule-header' href='/schedule'><b>Розклад</b></Nav.Link>
+    )
+    if(position === 'doctor'){
+        setAccesDoctor(schedule)
+    }
+    if (position === 'patient'){
+        setAccesDoctor(null)
+    }
 
     return(
         <header className="App-header bg-white">
@@ -34,9 +47,9 @@ const Header = () => {
                     </Navbar.Brand>
                     <Navbar.Collapse className="justify-content-end">
                         <Nav className='button-header Button-text-1'>
+                            {accesDoctor}
                             <Nav.Link className='Home-header' href='/'><b>Головна</b></Nav.Link>
                             <Nav.Link className='Procidure-header' href='/procedurerooms'><b>Процедурні кабінети</b></Nav.Link>
-                            <Nav.Link className='Shedule-header' href='/schedule'><b>Розклад</b></Nav.Link>
                         </Nav>
                         {isLoggedIn ? (
                             <Nav className='button-header Button-text-1'>

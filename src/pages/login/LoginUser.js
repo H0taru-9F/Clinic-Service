@@ -18,7 +18,8 @@ const LoginUser = async (email, password) => {
         const user = {
             email: email,
             password: stars,
-            token: token
+            token: token,
+            position: position
         }
 
         console.log(user)

@@ -6,11 +6,14 @@ import { ButtonSmallLink} from "../../components/ButtonsComponent";
 import Dropzone from "../../components/DropzoneComponent";
 import UnpackingUser from "../../utils/UnpackingUser";
 import useFetch from "../../hooks/useFetch";
+import unpackingUser from "../../utils/UnpackingUser";
 
 
 const Account = () => {
+    const [accesDoctor, setAccesDoctor] = useState()
     const {data, loading, error} = useFetch('/v1/Rocket/account')
 
+    const {position} = unpackingUser
     useEffect(() => {
         if (data) {
             setAccountPage(AccountPers)
@@ -19,7 +22,15 @@ const Account = () => {
 
     const {email, password} = UnpackingUser()
     console.log('useFetch data', data, loading, error)
-
+const patients = (
+    <button className='Account-nav-button Button-text-link-1' onClick={() => setAccountPage(AccountOffset)}>Страховка</button>
+)
+    if (position === 'patient'){
+        setAccesDoctor(patients)
+    }
+    if (position === 'doctor'){
+        setAccesDoctor(null)
+    }
 
     const AccountPers=(
         <div className='Account-inf-pers '>
@@ -105,9 +116,8 @@ const Account = () => {
             <div className='Account-block'>
                 <div className=' Account-nav'>
                     <button className='Account-nav-button Button-text-link-1' onClick={() => setAccountPage(AccountPers)}>Особистий кабінет</button>
-                    <button className='Account-nav-button Button-text-link-1' onClick={() => setAccountPage(AccountOffset)}>Страховка</button>
+                    {accesDoctor}
                     <button className='Account-nav-button Button-text-link-1' onClick={() => setAccountPage(AccountData)}>Дані аккаунту</button>
-                    <a className='Account-nav-button-link Button-text-link-1' href='/src/pages/patients/Patients' >Пацієнти</a>
                 </div>
                 <div className='Account-inf bg-lightF'>
                     {AccountPage}

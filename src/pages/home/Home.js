@@ -7,6 +7,7 @@ import '../../assets/colors.css';
 import information from '../../data/contauctUs.json';
 //якщо перенести зображення в public ьо зображення передаються в усіх інших випадках вони не відображаються
 function Home() {
+
     return (
         <div className="Home bg-white">
                 <Header/>
