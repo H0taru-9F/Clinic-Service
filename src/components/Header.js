@@ -5,7 +5,7 @@ import '../assets/typography.css';
 import {LOCALSTORE_USER} from "../data/constants";
 import unpackingUser from "../utils/UnpackingUser";
 const Header = () => {
-    const [accesDoctor, setAccesDoctor] = useState('')
+    const [accesDoctor, setAccesDoctor] = useState(null)
     const [isLoggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
@@ -14,15 +14,15 @@ const Header = () => {
             setLoggedIn(true);
         }
     }, []);
-
     const {position} = unpackingUser
+
     const schedule = (
         <Nav.Link className='Shedule-header' href='/schedule'><b>Розклад</b></Nav.Link>
     )
+
     if(position === 'doctor'){
         setAccesDoctor(schedule)
-    }
-    if (position === 'patient'){
+    }else if (position === 'patient'){
         setAccesDoctor(null)
     }
 

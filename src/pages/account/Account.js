@@ -10,7 +10,7 @@ import unpackingUser from "../../utils/UnpackingUser";
 
 
 const Account = () => {
-    const [accesDoctor, setAccesDoctor] = useState()
+    const [accesDoctor, setAccesDoctor] = useState(null)
     const {data, loading, error} = useFetch('/v1/Rocket/account')
 
     const {position} = unpackingUser
@@ -27,8 +27,7 @@ const patients = (
 )
     if (position === 'patient'){
         setAccesDoctor(patients)
-    }
-    if (position === 'doctor'){
+    }else if (position === 'doctor'){
         setAccesDoctor(null)
     }
 
@@ -96,7 +95,17 @@ const patients = (
     const AccountData = (
         <div className='Account-inf-data'>
             <div className='Account-inf-data-first-block Body2'>
-
+                <p>{
+                    data?.apointments.map(item => {
+                        return(
+                            <div>
+                                <p>{item.apointmentName}</p>
+                                <p>{item.apointmentTime}</p>
+                                <p>{item.office}</p>
+                            </div>
+                        )
+                    })
+                }</p>
             </div>
             <div style={{
                 borderTop: '1.5px solid black',
@@ -104,7 +113,6 @@ const patients = (
                 borderColor: '#23AB7D'
             }} />
             <div className='Account-inf-data-second-block'>
-                <ButtonSmallLink title='Вийти' onClick={() =>{window.localStorage.clear(); window.location.reload();}}/>
             </div>
         </div>
     );
