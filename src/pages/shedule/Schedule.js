@@ -18,20 +18,20 @@ const Schedule = () => {
         }
     }, [loading]);
 
-    const {data:reqData, loading:reqLoading, error:reqError, postData} = usePostRequest('/')
+    // const {data:reqData, loading:reqLoading, error:reqError, postData} = usePostRequest('/')
 
-    const handlePostData = async () => {
-        console.log(selectDate)
-        await postData({
-            date: selectDate
-        })
-    }
+    // const handlePostData = async () => {
+    //     console.log(selectDate)
+    //     await postData({
+    //         date: selectDate
+    //     })
+    // }
 
-    useEffect(() => {
-        handlePostData();
-    }, [selectDate]);
-
-    console.log('Request data', reqData, reqLoading, reqError)
+    // useEffect(() => {
+    //     handlePostData();
+    // }, [selectDate]);
+    //
+    // console.log('Request data', reqData, reqLoading, reqError)
 
     // const GroupedSchedule = () => {
     //     const groupedData = data.reduce((acc, item) => {
@@ -48,9 +48,12 @@ const Schedule = () => {
 
     const groupedData = data?.reduce((acc, item) => {
         const dayOfWeek = item.dayOfWeek;
-        acc[dayOfWeek] = acc[dayOfWeek] || { appointments: [], offices: new Set() };
-        acc[dayOfWeek].appointments.push(item);
-        acc[dayOfWeek].offices.add(item.office);
+        const office = item.office;
+
+        acc[dayOfWeek] = acc[dayOfWeek] || { offices: {} };
+        acc[dayOfWeek].offices[office] = acc[dayOfWeek].offices[office] || [];
+        acc[dayOfWeek].offices[office].push(item);
+
         return acc;
     }, {});
 
@@ -81,51 +84,38 @@ const Schedule = () => {
                         borderColor: '#23AB7D'
                     }} />
                     <div className='Schedule-container'>
-                        {Object.entries(groupedData).map(([dayOfWeek, { appointments, offices }]) => (
+                        {Object.entries(groupedData).map(([dayOfWeek, { offices }]) => (
                             <div key={dayOfWeek}>
                                 <div className='Schedule-container-title tx-black '>
                                     <p className='Caption'>{dayOfWeek}</p>
-                                    <p className='offices Body'>Кабінет {[...offices].join(', ')}</p>
                                 </div>
-                                <ul>
-                                    {appointments.map((appointment) => (
-                                        <div className='container-inf Body2'>
-                                            <p className='time tx-green'>Години прийому</p>
-                                            <p>{appointment.appointmentTime}</p>
-                                            <p className='doctor tx-green'>Лікар</p>
-                                            <p>{appointment.doctor.doctorName}</p>
+                                {Object.entries(offices).map(([office, appointments]) => (
+                                    <div key={office}>
+                                        <div className='Schedule-container-title tx-black '>
+                                            <p className='offices Body'>Кабінет {office}</p>
                                         </div>
-                                    ))}
-                                </ul>
-                                <div style={{
+                                        <ul>
+                                            {appointments.map((appointment) => (
+                                                <div className='container-inf Body2' key={appointment.id}>
+                                                    <p className='time tx-green'>Години прийому</p>
+                                                    <p>{appointment.appointmentTime}</p>
+                                                    <p className='doctor tx-green'>Лікар</p>
+                                                    <p>{appointment.doctor.doctorName}</p>
+                                                </div>
+                                            ))}
+                                        </ul>
+
+                                        <div style={{
                                     borderTop: '1.5px solid black',
                                     marginTop: '54px',
                                     borderColor: '#23AB7D'
                                 }} />
+                                    </div>
+                                ))}
                             </div>
                         ))}
                     </div>
 
-
-                    {/*<div className='Schedule-container'>*/}
-                    {/*    {tested.map(item => {*/}
-                    {/*        return(*/}
-                    {/*            <div>*/}
-                    {/*                <div className='tx-black Caption'>*/}
-                    {/*                    <p>*/}
-                    {/*                        {item.dayOfWeek}*/}
-                    {/*                    </p>*/}
-                    {/*                </div>*/}
-                    {/*                <div>*/}
-
-                    {/*                </div>*/}
-                    {/*                <div>*/}
-
-                    {/*                </div>*/}
-                    {/*            </div>*/}
-                    {/*        )*/}
-                    {/*    })}*/}
-                    {/*</div>*/}
 
                 </div>
             </div>
