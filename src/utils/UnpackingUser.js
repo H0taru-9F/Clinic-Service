@@ -6,9 +6,9 @@ const UnpackingUser = () => {
     if (storedData){
         try {
             const userData = JSON.parse(storedData);
-            const { email, password, token, position} = userData;
+            const { email, password, token, access} = userData;
 
-            return { email, password, token, position };
+            return { email, password, token, access};
             // const userData = JSON.parse(storedData);
             // const { email, password, token } = userData;
             // const codedPass = (password) => {
@@ -23,6 +23,6 @@ const UnpackingUser = () => {
         }
 
     }
-    return { email: 'даних немає', password: 'даних немає', token: null };
+    return { email: 'даних немає', password: 'даних немає', token: null, access: 'даних немає' };
 }
 export default UnpackingUser;

@@ -14,15 +14,16 @@ const Header = () => {
             setLoggedIn(true);
         }
     }, []);
-    const {position} = unpackingUser
+
+    const { access } = unpackingUser()
 
     const schedule = (
         <Nav.Link className='Shedule-header' href='/schedule'><b>Розклад</b></Nav.Link>
     )
 
-    if(position === 'doctor'){
+    if(access === 'doctor'){
         setAccesDoctor(schedule)
-    }else if (position === 'patient'){
+    }else if (access === 'patient'){
         setAccesDoctor(null)
     }
 

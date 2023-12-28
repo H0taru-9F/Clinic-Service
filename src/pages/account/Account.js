@@ -6,28 +6,25 @@ import { ButtonSmallLink} from "../../components/ButtonsComponent";
 import Dropzone from "../../components/DropzoneComponent";
 import UnpackingUser from "../../utils/UnpackingUser";
 import useFetch from "../../hooks/useFetch";
-import unpackingUser from "../../utils/UnpackingUser";
-
 
 const Account = () => {
     const [accesDoctor, setAccesDoctor] = useState(null)
     const {data, loading, error} = useFetch('/v1/Rocket/account')
 
-    const {position} = unpackingUser
     useEffect(() => {
         if (data) {
             setAccountPage(AccountPers)
         }
     }, [data]);
 
-    const {email, password} = UnpackingUser()
+    const {email, password, access} = UnpackingUser()
     console.log('useFetch data', data, loading, error)
 const patients = (
     <button className='Account-nav-button Button-text-link-1' onClick={() => setAccountPage(AccountOffset)}>Страховка</button>
 )
-    if (position === 'patient'){
+    if (access === 'patient'){
         setAccesDoctor(patients)
-    }else if (position === 'doctor'){
+    }else if (access === 'doctor'){
         setAccesDoctor(null)
     }
 
@@ -95,17 +92,17 @@ const patients = (
     const AccountData = (
         <div className='Account-inf-data'>
             <div className='Account-inf-data-first-block Body2'>
-                <p>{
-                    data?.apointments.map(item => {
+                <div>{
+                    data?.appointments.map(item => {
                         return(
-                            <div>
-                                <p>{item.apointmentName}</p>
-                                <p>{item.apointmentTime}</p>
-                                <p>{item.office}</p>
+                            <div className='acnt Small'>
+                                <p className='acnt one'>{item.appointmentName}</p>
+                                <p className='acnt two'>{item.appointmentTime}</p>
+                                <p className='acnt three'>{item.office}</p>
                             </div>
                         )
                     })
-                }</p>
+                }</div>
             </div>
             <div style={{
                 borderTop: '1.5px solid black',

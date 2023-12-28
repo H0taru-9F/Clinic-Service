@@ -71,3 +71,7 @@
     width: 240px;
     margin-right: 60px;
 }
+.acnt{
+    display: flex;
+    margin: 12px;
+}
